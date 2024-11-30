@@ -1,0 +1,24 @@
+body{
+    background-color: blueviolet;
+}
+
+nav{
+    background-color: orange;
+    justify-content: space-between;
+}
+fieldset{
+    width: 70%;
+    display: block;
+    margin: auto;
+}
+.card{
+    width: 70%;
+    display: block;
+    margin: auto;
+}
+
+.alert{
+display: block;
+max-width: 30%;
+margin: auto;
+}

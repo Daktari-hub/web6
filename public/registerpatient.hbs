@@ -1,0 +1,264 @@
+<!-- This is the registration form  -->
+ <!-- It will also contain  the summary form -->
+
+ <!-- Registration begins here -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="/modal.css">
+    <link rel="stylesheet" href="/register.css">
+    
+  </head>
+  <body>
+    <form action="" action="" class="format hides">
+        <div class="head" style="text-align: center; margin-bottom: 20px;">
+        <h1>DaktariCare Registration Form</h1>
+        </div>
+        <fieldset style="width: 90%; margin-left: 30px;">
+            <legend style="text-align: center;">Register New user</legend>
+        <div class="form-group">
+            <label for="fname">FirstName</label><br>
+            <input type="text" id="fname" class="firstname inputs" placeholder="FirstName" required>
+        </div>
+        <div class="form-group">
+            <label for="lname">Lastname</label><br>
+            <input type="text" id="lname" class="lastname inputs" placeholder="LastName" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label><br>
+            <input type="email" id="email" class="useremail inputs"  spellcheck="false"  onkeyup="validate()" placeholder="email" ><br>
+            <small class="emailval"></small>
+        </div>
+        <div class="form-group">
+            <label for="gname">Guardian Name</label><br>
+            <input type="text" id="gname" class="GuardianName inputs" placeholder="Guardian Name">
+        </div>
+        <div class="form-group">
+            <label for="gname">Guardian Email</label><br>
+            <input type="email" id="gemail" class="GuardianEmail inputs" spellcheck="false" onkeyup="validateg()" placeholder="Guardian Email">
+            <br><small class="gemailval"></small>
+        </div>
+        <div class="form-group">
+            <small class="phoneNoVal">Please start with country Code</small>
+<br>
+            <label for="phone">PhoneNumber</label><br>
+
+            <input type="tel" id="phone" class="phoneNo inputs" placeholder="PhoneNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label><br>
+            <input type="text" id="address" class="locate inputs" placeholder="Address" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label><br>
+            <input type="password" id="password" class="lgpassword inputs" placeholder="Login passWord" onkeyup="passreg()"><br>
+            <small class="passval"></small>
+        </div>
+        <div class="form-group">
+        <span><p>Do you accept our terms and condition?</p></span><input type="checkbox" class="check">
+        
+        <input type="submit" value="Submit" class="sub">
+
+    </div>
+</fieldset>
+    </form>
+
+    <button class="modal-btn">Terms and condition</button>
+    
+
+
+<!-- Summary form starts Here -->
+<!-- 
+Data needed for summary
+1. firstname, lastname, email, guardian full name, email phonenumber, prompt for consent
+-->
+<br><br>
+<form action="" action="" class="format1" style="display: none;">
+    <div class="form-group">
+        <label for="fname">FirstName</label>
+        <input type="text" id="fname" class="firstnames input" placeholder="FirstName" required>
+    </div>
+    <div class="form-group">
+        <label for="lname">Lastname</label>
+        <input type="text" id="lname" class="lastnames input" placeholder="LastName" required>
+    </div>
+    <div class="form-group">
+        <label for="fname">Email</label>
+        <input type="email" id="fname" class="useremails input" spellcheck="false" placeholder="email" required><br>
+        <small class="emailval"></small>
+    </div>
+    <div class="form-group">
+        <label for="gname">Guardian Name</label>
+        <input type="text" id="gname" class="GuardianNames input" placeholder="Guardian Name">
+    </div>
+    <div class="form-group">
+        <label for="gname">Guardian Email</label>
+        <input type="email" id="gemail" class="GuardianEmails input" spellcheck="false" placeholder="Guardian Email">
+        <small class="gemailvals"></small>
+    </div>
+    <div class="form-group">
+        <small class="phoneNoVals">Please start with country Code</small>
+<br>
+        <label for="phone">PhoneNumber</label>
+        <input type="tel" id="phone" class="phoneNos" placeholder="PhoneNumber" required>
+    </div>
+    
+    <br>
+
+    <input style="background-color: brown;" type="submit" value="Submit" class="sub">
+</form>
+<br><br>
+
+
+<form action="" class="formres formhide hidden">
+<p class="test5"></p>
+<p class="test"></p> 
+<p class="test1"></p>
+<p class="test2"></p> 
+<p class="test3"></p>
+<p class="test4"></p> 
+<small class="consent"></small>
+<input type="text" class="responseInput input">
+<h2 class="response"></h2>
+<input type="submit" value="YES or NO" class="confirm"><button class="sumbtn">Save and Login</button> <button class="backbtn">Go back to Registration Page</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal Starts here -->
+<h2 class="date"></h2>
+<div class="container overall">
+<div class="modal hidden">
+    <div class="modal-title">
+        <h3 class="hright close">✖</h3>
+    <h3>Terms and Conditions </h3></div>
+        <div class="modal-body">
+            
+            Introduction
+            
+            These Terms and Conditions ("Terms") govern your access to and use of DaktariCare Telemedicine services ("Services"). By using our Services, you agree to be bound by these Terms.
+            
+            Definitions
+            
+            - "Telemedicine Services" means remote healthcare services provided through electronic communications.
+            - "Healthcare Provider" means a licensed healthcare professional providing Services.
+            - "Patient" means the individual receiving Services.
+            - "Hospital" means [Hospital Name].
+            
+            <h4>Use of Services</h4>
+            <ol>
+                <li>1. Eligibility: We offer exclusive services to every individual.</li>
+                <li>2. Accessibility: Services are available 24/7, except during maintenance or technical issues.</li>
+                <li>3. User Account: Patients must create an account to access Services.</li>
+            </ol>
+            
+            <h3>Confidentiality and Security</h3>
+            <ol>
+                <li>1. HIPAA Compliance: Hospital complies with HIPAA regulations.</li>
+                <li>2. Data Encryption: Electronic transmissions are encrypted.</li>
+                <li>3. Secure Storage: Medical records are stored securely.</li>
+            </ol>
+            
+            <h3>Patient Responsibilities</h3>
+            <ol>
+                <li>1. Accurate Information: Provide accurate medical history.</li>
+                <li>2. Follow Instructions: Follow Healthcare Provider instructions.</li>
+                <li>3. Privacy: Ensure privacy during telemedicine sessions.</li>
+            </ol>
+            
+            
+            <h3>Healthcare Provider Responsibilities</h3>
+            <ol>
+                <li>1. Qualified Providers: Hospital ensures qualified Healthcare Providers.</li>
+                <li>2. Technical Requirements: Hospital ensures secure connections.</li>
+                <li>3. Confidentiality: Healthcare Providers maintain confidentiality.</li>
+            </ol>
+            
+            <h3>Payment and Insurance</h3>
+            <ol>
+                <li>1. Fees: Patients are responsible for payment.</li>
+                <li>2. Insurance: Check with your insurance provider for coverage.</li>
+            </ol>
+        
+            
+            <h3>Disclaimers and Limitations</h3>
+            <ol>
+                <li>1. No Emergency Services: Telemedicine is not for emergencies.</li>
+                <li>2. Technical Issues: Hospital is not liable for technical failures.</li>
+                <li>3. No Guarantees: Hospital does not guarantee diagnosis or treatment.</li>
+            </ol>
+             
+            
+            <h4>Termination</h4>
+            <ol>
+                <li>1. Hospital reserves the right to terminate Services.</li>
+                <li>2. Patient may terminate account at any time.</li>
+            </ol>
+            
+         
+           <h4>Governing Law</h4>
+            
+            <p>These Terms shall be governed by and construed in accordance with Kenyan laws.</p>
+            
+            <h4>Changes to Terms</h4>
+            
+            <p>Hospital reserves the right to update Terms.</p>
+            
+            <p>Contact Information
+
+
+            <h5>Vision</h5>
+            <p>To be the leading digital healthcare platform that ensures equitable, accessible, and quality healthcare for everyone, anytime and anywhere.</p>
+
+            <h6>Mission</h6>
+            <p>Our mission is to connect patients with trusted healthcare professionals through a seamless, secure, and user-friendly platform. We aim to bridge the gap in healthcare access by leveraging technology to deliver timely consultations, personalized care, and continuous health monitoring</p>
+
+            <h7>Our Values</h7>
+            <ol>
+                <li>1. Integrity
+                <li>2. Accessibility</li>
+                <li>3. Privacy and Security</li>
+                <li>4. Collaboration</li>
+                <li>5. Innovation</li>
+                <li>6. Quality Care</li>
+                </li>
+            </ol>
+            
+            For questions or concerns, contact customer care at +254704353943 or support@DaktariCare.com.
+            
+            Acceptance
+            
+            By using our Services, you acknowledge reading, understanding, and agreeing to these Terms.
+            
+           </p>
+            
+            I, __________________________, acknowledge acceptance of these Terms on this date: _________________
+        <button class="print" onclick="printpage()">Print this page</button>
+    </div>
+</div>
+</div>
+
+<!-- Modal ends here -->
+<script src="register.js"></script>
+<script src="modal.js"></script>
+  </body>
+
+
+  </html>

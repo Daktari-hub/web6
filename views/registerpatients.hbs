@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/register.css">
+    <link rel="stylesheet" href="/modal.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Logo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/patient">Patient Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/patient/register/admin">Admin Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/patient/register/doctors">Available Doctor</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      Welcome to DaktariCare Services
+    </span>
+  </div>
+</nav>
+
+<form action="/auth/register" method="POST" class="format hides">
+        <div class="head" style="text-align: center; margin-bottom: 20px;">
+        <h1>DaktariCare Registration Form</h1>
+        </div>
+        <fieldset style="width: 90%; margin-left: 30px;">
+            <legend style="text-align: center;">Register New user</legend>
+        <div class="form-group">
+            <label for="fname">FirstName</label><br>
+            <input type="text" id="fname" class="firstname inputs" name="fname" placeholder="FirstName"  required>
+        </div>
+        <div class="form-group">
+            <label for="lname">Lastname</label><br>
+            <input type="text" id="lname" class="lastname inputs" name="lname" placeholder="LastName" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label><br>
+            <input type="email" id="email" class="useremail inputs" name="email" spellcheck="false"  onkeyup="validate()" placeholder="email" ><br>
+            <small class="emailval"></small>
+        </div>
+        {{!-- <div class="form-group">
+            <label for="gname">Guardian Name</label><br>
+            <input type="text" id="gname" class="GuardianName inputs" placeholder="Guardian Name">
+        </div> --}}
+        {{!-- <div class="form-group">
+            <label for="gname">Guardian Email</label><br>
+            <input type="email" id="gemail" class="GuardianEmail inputs" spellcheck="false" onkeyup="validateg()" placeholder="Guardian Email">
+            <br><small class="gemailval"></small>
+        </div> --}}
+        {{!-- <div class="form-group">
+            <small class="phoneNoVal">Please start with country Code</small>
+<br>
+            <label for="phone">PhoneNumber</label><br>
+            <input type="tel" id="phone" class="phoneNo inputs" name="phone" placeholder="PhoneNumber" required>
+        </div> --}}
+        {{!-- <div class="form-group">
+            <label for="address">Address</label><br>
+            <input type="text" id="address" class="locate inputs" placeholder="Address" required>
+        </div> --}}
+        <div class="form-group">
+            <label for="password">Password</label><br>
+            <input type="password" id="password" class="lgpassword inputs" name="password" placeholder="Login passWord" onkeyup="passreg()"><br>
+            <small class="passval"></small>
+        </div>
+ <div class="form-group">
+            <label for="confirmpassword">Confirm Password</label><br>
+            <input type="password" id="confirmpassword" class="lgpassword" name="confirmpassword" placeholder="Login passWord" onkeyup="passreg()"><br>
+            <small class="passval"></small>
+        </div>
+
+        {{!-- <div class="form-group">
+        <span><p>Do you accept our terms and condition?</p></span><input type="checkbox" class="check">
+    </div> --}}
+    <input type="submit" value="Submit" class="sub">
+</fieldset>
+    </form>
+    {{#if message}}
+<h4 class="alert alert-danger mt-4">{{message}}</h4>
+    {{/if}}
+
+    <button class="modal-btn">Terms and condition</button>
+    
+
+
+<!-- Summary form starts Here -->
+<!-- 
+Data needed for summary
+1. firstname, lastname, email, guardian full name, email phonenumber, prompt for consent
+-->
+<br><br>
+<form action="" action="" class="format1" style="display: none;">
+    <div class="form-group">
+        <label for="fname">FirstName</label>
+        <input type="text" id="fname" class="firstnames input" placeholder="FirstName" required>
+    </div>
+    <div class="form-group">
+        <label for="lname">Lastname</label>
+        <input type="text" id="lname" class="lastnames input" placeholder="LastName" required>
+    </div>
+    <div class="form-group">
+        <label for="fname">Email</label>
+        <input type="email" id="fname" class="useremails input" spellcheck="false" placeholder="email" required><br>
+        <small class="emailval"></small>
+    </div>
+    <div class="form-group">
+        <label for="gname">Guardian Name</label>
+        <input type="text" id="gname" class="GuardianNames input" placeholder="Guardian Name">
+    </div>
+    <div class="form-group">
+        <label for="gname">Guardian Email</label>
+        <input type="email" id="gemail" class="GuardianEmails input" spellcheck="false" placeholder="Guardian Email">
+        <small class="gemailvals"></small>
+    </div>
+    <div class="form-group">
+        <small class="phoneNoVals">Please start with country Code</small>
+<br>
+        <label for="phone">PhoneNumber</label>
+        <input type="tel" id="phone" class="phoneNos" placeholder="PhoneNumber" required>
+    </div>
+    
+    <br>
+
+    <input style="background-color: brown;" type="submit" value="Submit" class="sub">
+</form>
+<br><br>
+
+
+<form action="" class="formres formhide hidden">
+<p class="test5"></p>
+<p class="test"></p> 
+<p class="test1"></p>
+<p class="test2"></p> 
+<p class="test3"></p>
+<p class="test4"></p> 
+<small class="consent"></small>
+<input type="text" class="responseInput input">
+<h2 class="response"></h2>
+<input type="submit" value="YES or NO" class="confirm"><button class="sumbtn">Save and Login</button> <button class="backbtn">Go back to Registration Page</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- modals Starts here -->
+<h2 class="date"></h2>
+<div class="container overall">
+<div class="modals hidden">
+    <div class="modals-title">
+        <h3 class="hright close">✖</h3>
+    <h3>Our Telemedicine Hospital Terms and Conditions </h3></div>
+        <div class="modals-body">
+            
+            Introduction
+            
+            These Terms and Conditions ("Terms") govern your access to and use of Medics Telemedicine services ("Services"). By using our Services, you agree to be bound by these Terms.
+            
+            Definitions
+            
+            - "Telemedicine Services" means remote healthcare services provided through electronic communications.
+            - "Healthcare Provider" means a licensed healthcare professional providing Services.
+            - "Patient" means the individual receiving Services.
+            - "Hospital" means [Hospital Name].
+            
+            <h4>Use of Services</h4>
+            <ol>
+                <li>1. Eligibility: Services are available to individuals 18 years or older.</li>
+                <li>2. Accessibility: Services are available 24/7, except during maintenance or technical issues.</li>
+                <li>3. User Account: Patients must create an account to access Services.</li>
+            </ol>
+            
+            <h3>Confidentiality and Security</h3>
+            <ol>
+                <li>1. HIPAA Compliance: Hospital complies with HIPAA regulations.</li>
+                <li>2. Data Encryption: Electronic transmissions are encrypted.</li>
+                <li>3. Secure Storage: Medical records are stored securely.</li>
+            </ol>
+            
+            <h3>Patient Responsibilities</h3>
+            <ol>
+                <li>1. Accurate Information: Provide accurate medical history.</li>
+                <li>2. Follow Instructions: Follow Healthcare Provider instructions.</li>
+                <li>3. Privacy: Ensure privacy during telemedicine sessions.</li>
+            </ol>
+            
+            
+            <h3>Healthcare Provider Responsibilities</h3>
+            <ol>
+                <li>1. Qualified Providers: Hospital ensures qualified Healthcare Providers.</li>
+                <li>2. Technical Requirements: Hospital ensures secure connections.</li>
+                <li>3. Confidentiality: Healthcare Providers maintain confidentiality.</li>
+            </ol>
+            
+            <h3>Payment and Insurance</h3>
+            <ol>
+                <li>1. Fees: Patients are responsible for payment.</li>
+                <li>2. Insurance: Check with your insurance provider for coverage.</li>
+            </ol>
+        
+            
+            <h3>Disclaimers and Limitations</h3>
+            <ol>
+                <li>1. No Emergency Services: Telemedicine is not for emergencies.</li>
+                <li>2. Technical Issues: Hospital is not liable for technical failures.</li>
+                <li>3. No Guarantees: Hospital does not guarantee diagnosis or treatment.</li>
+            </ol>
+             
+            
+            <h4>Termination</h4>
+            <ol>
+                <li>1. Hospital reserves the right to terminate Services.</li>
+                <li>2. Patient may terminate account at any time.</li>
+            </ol>
+            
+         
+           <h4>Governing Law</h4>
+            
+            <p>These Terms shall be governed by and construed in accordance with Nigeria laws.</p>
+            
+            <h4>Changes to Terms</h4>
+            
+            <p>Hospital reserves the right to update Terms.</p>
+            
+            <p>Contact Information
+            
+            For questions or concerns, contact medics at +234-814-047-0626 or support@medicNg.com.
+            
+            Acceptance
+            
+            By using our Services, you acknowledge reading, understanding, and agreeing to these Terms.
+            
+           </p>
+            
+            I, __________________________, acknowledge acceptance of these Terms on this date: _________________
+        <button class="print" onclick="printpage()">Print this page</button>
+    </div>
+</div>
+</div>
+
+<!-- modals ends here -->
+
+<!-- <script src="modals.js"></script> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="/register.js"></script>
+    <script></script>
+</body>
+</html>
